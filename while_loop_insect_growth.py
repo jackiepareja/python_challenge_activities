@@ -6,5 +6,7 @@
 
 num_insects = 8
 
-while num_insects < 100:
-    print(num_insects)
+while num_insects <= 100:
+    print(num_insects, ' ', end=' ')
+    num_insects = num_insects + num_insects
+    
