@@ -1,31 +1,41 @@
-# 1. Prompt the user for a string that contains two strings separated by a comma.
+# Best Practice: Used lowercase letters and an underscore in between the variables for specificity.
+# Best Practice: Used single quotes for shorter strings (and double quotes for longer strings), because there is a
+# continued: higher occurrence of apostrophies that maybe misrepresented as string quotations. It also improves
+# continued 2: readability.
 input_string = input('Enter input string: \n')
 
-# 4.1 Continue until the user enters q to quit.
+# A while loop is used so that the codeblock will keep executing as long as the user doesn't type 'q'.
 while input_string != 'q':
-    # 2.0 Report an error if the input string does not contain a comma.
-    # Rationale: A while statement will keep asking the user to input a string if there is no comma in the input.
+    # Rationale: A while statement will keep asking the user to input a string if there is no comma in the input. An if
+    # continued: statement will only execute the codeblock once if true.
+    # Rationale: Two while loops are used and written on the same branch so that the code block will switch over and
+    # Cont: execute as long as the statement is true.
     while ',' not in input_string:
         print('Error: No comma in string.')
-        # 2.1 Continue to prompt until a valid string is entered. Note: if the input contains a comma, then assume that the input also contains two strings
+        # Rationale: Under the while statement, the user will be prompted until there is a ',' in their string.
         input_string = input('Enter input string: \n')
-    # Rationale: Since a while statement was used in the same nest, using if/elif will run an error unless it's a while statement.
+    # Rationale: An else branch will not have enough clarify to why this codeblock should execute.
     while ',' in input_string:
-        # 3. Using string splitting, extract the two words from the input string and then remove any spaces. Output the two words.
+        # Rationale: The split built in function splits a string by a specific item.
+        # continued: The item is the ',', so it was detrimental that it a while statement asks the user if the comma is
+        # continue 2: already there in the first place.
+        # Best Practice: Appended the python keywords to differentiate from their functions.
         split_string = input_string.split(',')
-        # The title built-in function transforms the first character of a string into an uppercase letter. This is important since we're dealing with names.
-        # Regardless if the user enters a lower case first letter of a name, it will output an uppercase first letter.
-        # The strip built in function strips the white spaces that is before and after the string variable.
-        # If the strip function was used for the input_string variable, it will strip the white space before the first string, and after the second string.
+        # Rationale: The title built-in function transforms the first character of a string into an uppercase letter.
+        # continued: This is important since we're dealing with names. Regardless if the user enters a lower case first
+        # continued 2: letter of a name, it will output an uppercase first letter.
+        # Rationale: The strip built in function strips the white spaces that is before and after the string variable.
+        # continued: If the strip function was used for the input_string variable, it will strip the white space before
+        # continued 2: the first string, and after the second string.
+        # Rationale: The split and stripped individual strings are stored in individual variables to be printed and
+        # continued: formatted.
         first_string = split_string[0].title().strip()
         second_string = split_string[1].title().strip()
-        # The new .format in Python gives the placeholders an explicit positional index.
+        # Best Practices: The new .format in Python gives the placeholders an explicit positional index.
         print('First word: {first}\nSecond word:{second}'.format(first=first_string, second=second_string))
-        # 4.0 Using a loop, extend the program to handle multiple lines of input.
+        # Rationale: The user is asked multiple inputs as long as the user doesn't type 'q' to quit.
+        # If there is no comma in this string, the program will leave the loop and go back to the previous while loop.
         input_string = input('Enter input string: \n')
-        break
-    # This will break the infinite loop.
-
 else:
-    #This stops the program.
+    # Rationale: This stops the program.
     exit()
